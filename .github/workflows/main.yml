@@ -1,4 +1,4 @@
-name: Github Actions Template to explain Github OIDC.
+name: A simple Github Actions Template to explain Github OIDC and perform STS get caller identity.
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   get_caller_identity:
-    name: A simple Github Actions Template to call "sts-get-caller identity"
+    name: A simple Github Actions Template to call "aws sts-get-caller identity"
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials.
