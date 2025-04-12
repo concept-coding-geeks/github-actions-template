@@ -17,7 +17,7 @@ jobs:
       - name: Configure AWS Credentials.
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::<YOUR-ACCOUNT-NUMBER>:role/github-actions-iam-role
-          aws-region: <YOUR-REGION>
+          role-to-assume: ${{ vars.ACTIONS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
       - run: |
           aws sts get-caller-identity
