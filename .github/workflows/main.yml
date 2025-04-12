@@ -1,0 +1,23 @@
+name: Github Actions Template to explain Github OIDC.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  get_caller_identity:
+    name: A simple Github Actions Template to call "sts-get-caller identity"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials.
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::<YOUR-ACCOUNT-NUMBER>:role/github-actions-iam-role
+          aws-region: <YOUR-REGION>
+      - run: |
+          aws sts get-caller-identity
